@@ -2,33 +2,29 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: nexus
-  namespace: staging
+  namespace: staging2
 spec:
   replicas: 1
   template:
     metadata:
       labels:
         app: nexus-server
-        part-of: nexus
     spec:
       containers:
         - name: nexus
-          image: dendipradigta/nexus3-custom:1.1
+          image: dendipradigta/nexus3-custom:2.0
           resources:
             limits:
-              memory: "1Gi"
+              memory: "2Gi"
               cpu: "500m"
             requests:
-              memory: "1Gi"
-              cpu: "300m"
+              memory: "1.5Gi"
+              cpu: "250m"
           ports:
             - containerPort: 8081
- 
           volumeMounts:
-            - mountPath: "/nexus-data"
-              name: nexus-data
+            - name: nexus-data
+              mountPath: /nexus-data
       volumes:
         - name: nexus-data
-          persistentVolumeClaim:
-            claimName: nexus-pvc
- 
+          emptyDir: {}
