@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: nexus
-          image: dendipradigta/nexus3-custom:1.1
+          image: dendipradigta/nexus3-custom:2.0
           resources:
             limits:
               memory: "2Gi"
