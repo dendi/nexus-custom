@@ -1,4 +1,4 @@
-provider "google" {
+#provider "google" {
 #  credentials = "${file("service-account.json")}"
 #  project     = "aliz-hw-dendiparadigta"
 #  region      = "us-central1"
